@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SandDrawOnline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            background: #333;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        #colorPicker {
+            display: none;
+        }
+        canvas {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 60px);
+            touch-action: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <button class="color-btn" style="background: yellow;" onclick="setColor('yellow')"></button>
+        <button class="color-btn" style="background: red;" onclick="setColor('red')"></button>
+        <button class="color-btn" style="background: blue;" onclick="setColor('blue')"></button>
+        <button class="color-btn" style="background: green;" onclick="setColor('green')"></button>
+        <button class="color-btn" style="background: white; border: 1px solid black;" onclick="openColorPicker()">🎨</button>
+        <input type="color" id="colorPicker" onchange="setColor(this.value)">
+    </div>
+    <canvas id="sandCanvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
